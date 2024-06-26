@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { CiDeliveryTruck } from "react-icons/ci";
+import { useForm } from "react-hook-form";
 
 const Navbar = () => {
+
+
 
     const navOptions = <>
         <li> <Link to="/">Home</Link></li>
@@ -14,7 +17,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="navbar mx-auto text-black fixed z-10 bg-opacity-80 max-w-screen-xl bg-white">
+            <div className="navbar mx-auto 2xl:container text-black fixed z-10 bg-opacity-80 bg-white">
                 <div className="navbar-start">
                     <div className="dropdown text-black font-semibold">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -36,10 +39,12 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end mr-6">
-                    <button className="p-2 bg-[#FA4318] border-none
+                    <Link to="/tracking">
+                        <button className="p-2 bg-[#FA4318] border-none
                     text-white">
-                        Get A Quote
-                    </button>
+                            Tracking
+                        </button>
+                    </Link>
                 </div>
             </div>
         </>

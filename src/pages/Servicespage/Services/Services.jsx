@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
 import Footer from "../../../Shared/Footer/Footer";
 import Navbar from "../../../Shared/Navbar/Navbar";
 import Happyclients from "../Happyclients/Happyclients";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const Services = () => {
-
-    function Card({ title, description, src }) {
-        return <div className="card card-compact bg-base-100 shadow-xl hover:bg-[#FA4318] hover:text-[#ffff] duration-300">
+function Card({ title, description, src }) {
+    return <Link to="/servicesdetails">
+        <div className="card card-compact bg-base-100 shadow-xl hover:bg-[#FA4318] hover:text-[#ffff] duration-300">
             <figure><img src={src} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
@@ -16,9 +18,29 @@ const Services = () => {
                     <button className="text-[#efef61]">Read More</button>
                 </div>
             </div>
-        </div>
+        </div></Link>
+}
+
+const Services = () => {
+
+    const [services, setServices] = useState([]);
+
+
+    const fetchService = async () => {
+        try {
+            const { data } = await axios.get(import.meta.env.VITE_BASE_URL + "/services")
+
+            console.log(data)
+            setServices(data)
+
+        } catch (error) {
+            console.log(error.message);
+        }
     }
 
+    useEffect(() => {
+        fetchService()
+    }, [])
 
     return (
         <div>
@@ -38,10 +60,8 @@ const Services = () => {
                 </div>
 
                 <div className="grid grid-cols-3 gap-4">
-                    <Card src={"https://www.wowtheme7.com/tf/transpro/assets/img/service/1.png"}
-                        title={"SEA TRANSPORTATION"}
-                        description={"Intrinsicly exploit e-business imperative with emerging human capital."}>
-                    </Card>
+
+
                     <Card src={"https://www.wowtheme7.com/tf/transpro/assets/img/service/2.png"}
                         title={"AIR TRANSPORTATION"}
                         description={"Intrinsicly exploit e-business imperative with emerging human capital."}></Card>

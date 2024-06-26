@@ -3,6 +3,14 @@ import Navbar from "../../../Shared/Navbar/Navbar";
 
 
 const ServicesDetails = () => {
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm()
+
+    const onSubmit = (data) => console.log(data)
     return (
         <div>
             <Navbar></Navbar>
@@ -46,13 +54,25 @@ const ServicesDetails = () => {
                 </div>
 
                 <div>
-                    <div className="w-full">
-                        <button
-                            className="bg-white border border-2xl py-3 px-8
-                             text-sm text-gray-600 "
-                        >
-                            Search
-                        </button>
+                    <h2 className="text-center font-bold text-2xl mb-4">Booking Now</h2>
+                    <div>
+                        <div className="text-xl ml-4 p-6 text-black border font-semibold">
+                            <h2 className="font-semibold text-gray-600 text-2xl mb-1">Pick your date & time for delivery</h2>
+                            <p className="text-sm mb-2 text-gray-400">FASTEST COURIER SERVICES IN BANGLADESH</p>
+                            <hr className="mb-2" />
+                            <form className="text-gray-600">
+                                <label>Name:</label><br />
+                                <input type="text" {...register("name", { required: true })} className="h-10 mt-1 mb-3 bg-slate-100 w-full border text-sm
+                        text-[#FA4318] p-2" name="to_name" /><br />
+                                <label>Phone:</label> <br />
+                                <input type="text" {...register("phone", { required: true })} className="h-10 mt-1 mb-3 bg-slate-100 w-full text-sm
+                        text-[#FA4318] p-2" name="email_id" /><br />
+                                <label>Delivery Date:</label> <br />
+                                <input type="text"{...register("email", { required: true })} className="h-10 mt-1 mb-3 bg-slate-100 w-full text-sm
+                        text-[#FA4318] p-2" name="email_id" /><br />
+                                <input className="p-2  bg-[#FA4318] mt-4 mb-3  text-xl font-bold text-white" type="submit" value="Booking" />
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

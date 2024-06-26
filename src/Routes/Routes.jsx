@@ -7,6 +7,7 @@ import Services from "../pages/Servicespage/Services/Services";
 import ServicesDetails from "../pages/Servicespage/ServicesDetails/ServicesDetails";
 import Bolgs from "../pages/Blogs/Bolgs";
 import Contact from "../pages/Contact/Contact";
+import Tracking from "../pages/Tracking/Tracking";
 
 
 export const router = createBrowserRouter([
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
             {
                 path: '/contact',
                 element: <Contact></Contact>
+            },
+            {
+                path: '/tracking',
+                element: <Tracking></Tracking>
             }
         ]
     },
